@@ -18,13 +18,13 @@ const galleryCards = [
   },
   {
     number: '03',
-    src: `${baseUrl}images/dentro-del-barco.jpg`,
+    src: `${baseUrl}images/SHIT TO SHIT.jpg`,
     alt: 'Maniobras especiales',
     title: 'Maniobras Especiales',
   },
   {
     number: '04',
-    src: `${baseUrl}images/SHIT TO SHIT.jpg`,
+    src: `${baseUrl}images/dentro-del-barco.jpg`,
     alt: 'Operación STS',
     title: 'Operación STS',
   },
@@ -60,7 +60,7 @@ export function Home() {
   return (
     <main>
       <section className="hero" id="inicio">
-        <img className="hero-bg" src={`${baseUrl}images/CIELO EN EL MAR.jpg`} alt="Operaciones BlueWave Maritime" />
+        <img className="hero-bg" src={`${baseUrl}images/aerial-drone-photo-industrial-fuel-petrochemical-tanker-cruising-sea.jpg`} alt="Operaciones BlueWave Maritime" />
         <div className="hero-overlay" />
         <div className="hero-content bw-reveal bw-reveal-up">
           <span className="hero-kicker">AGENCIA NAVIERA — ECUADOR</span>
@@ -88,7 +88,7 @@ export function Home() {
 
       <section className="about bw-reveal bw-reveal-left" id="acerca">
         <div className="about-img-wrap">
-          <img src={`${baseUrl}images/puerto-esmeraldas.jpg`} alt="Equipo BlueWave Maritime" />
+          <img src={`${baseUrl}images/SHIT TO SHIT.jpg`} alt="Especialistas Ship to Ship" />
           <div className="about-badge"><b>STS</b><span>Especialistas Ship to Ship</span></div>
         </div>
         <div>

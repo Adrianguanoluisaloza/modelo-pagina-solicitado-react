@@ -37,7 +37,7 @@ export function Nav() {
             <li><a href={`${baseUrl}#acerca`}>NOSOTROS</a></li>
             <li><a href={`${baseUrl}#contacto`}>CONTACTO</a></li>
             <li><Link className="bw-nav-cta" to="/cotizacion">COTIZAR</Link></li>
-            <li><Link to="/exportar">↓ EXPORTAR</Link></li>
+            <li><Link className="bw-nav-secondary" to="/exportar">EXPORTAR</Link></li>
           </ul>
         </div>
       </nav>
