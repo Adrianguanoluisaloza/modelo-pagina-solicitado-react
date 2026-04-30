@@ -1,24 +1,17 @@
 import React, { useState } from "react";
-import { FaShip, FaAnchor, FaShoppingCart, FaPhone, FaEnvelope, FaWhatsapp, FaCheck } from "react-icons/fa";
 
 type FormState = {
   company: string;
   address: string;
   email: string;
   phone: string;
-  itros?: string;
-  loa?: string;
-  beam?: string;
-  dwt?: string;
+  itros: string;
+  loa: string;
+  beam: string;
+  dwt: string;
   destination: string;
   service: string;
   notes: string;
-};
-
-const servicePrefill: Record<string, Partial<FormState>> = {
-  "Transporte y Cabotaje": { service: "Transporte y Cabotaje", destination: "La Libertad" },
-  "Barcazas y Plataformas": { service: "Barcazas y Plataformas", destination: "Esmeraldas" },
-  "Alquiler y Tripulación": { service: "Alquiler y Tripulación" },
 };
 
 export function Cotizacion(): JSX.Element {
@@ -39,21 +32,24 @@ export function Cotizacion(): JSX.Element {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  function selectService(name: string) {
-    const pre = servicePrefill[name] || {};
-    setForm((s) => ({ ...s, ...pre, service: name }));
-    setErrors((e) => ({ ...e, service: "" }));
-  }
-
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     const { name, value } = e.target;
     setForm((s) => ({ ...s, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: "" }));
   }
 
+  function handleNotesChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
+    const { value } = e.target;
+    setForm((s) => ({ ...s, notes: value }));
+    setErrors((prev) => ({ ...prev, notes: "" }));
+    e.target.style.height = "auto";
+    e.target.style.height = `${e.target.scrollHeight}px`;
+  }
+
   function validate() {
     const err: Record<string, string> = {};
-    if (!form.company) err.company = "Requerido";
+    if (!form.company.trim()) err.company = "Requerido";
+    if (!form.address.trim()) err.address = "Requerido";
     if (!form.email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) err.email = "Email válido requerido";
     if (!form.service) err.service = "Seleccione un servicio";
     return err;
@@ -73,136 +69,104 @@ export function Cotizacion(): JSX.Element {
     }, 900);
   }
 
+  const portImageSrc = `${import.meta.env.BASE_URL}images/puerto-esmeraldas.jpg`;
+
   return (
-    <main className="cot-page">
-      <section className="cot-hero cot-hero--image">
-        <div className="cot-hero__overlay" />
-        <div className="cot-hero__content">
-          <p>Solicita tu Cotización</p>
-          <h1>Solicite una Propuesta</h1>
-          <p className="cot-hero__tag">Soluciones marítimas — Confianza, Agilidad y Profesionalismo</p>
-        </div>
+    <main className="cot-page cot-pro-page">
+      <section className="cot-pro-hero">
+        <p>Formulario de Cotización</p>
+        <h1>Contáctanos para ofrecerte una solución personalizada</h1>
       </section>
 
-      <section className="cot-grid">
-        <div className="cot-main">
-          <div className="service-cards">
-            <button type="button" className={`service-card ${form.service === "Transporte y Cabotaje" ? "selected" : ""}`} onClick={() => selectService("Transporte y Cabotaje")}>
-              <FaShip className="service-icon" />
-              <h4>Transporte y Cabotaje</h4>
-              <p>Rutas nacionales e internacionales, cargas generales y pasajeros.</p>
-            </button>
-
-            <button type="button" className={`service-card ${form.service === "Barcazas y Plataformas" ? "selected" : ""}`} onClick={() => selectService("Barcazas y Plataformas")}>
-              <FaAnchor className="service-icon" />
-              <h4>Barcazas y Plataformas</h4>
-              <p>Traslado de barcazas, plataformas y estructuras especiales.</p>
-            </button>
-
-            <button type="button" className={`service-card ${form.service === "Alquiler y Tripulación" ? "selected" : ""}`} onClick={() => selectService("Alquiler y Tripulación")}>
-              <FaShoppingCart className="service-icon" />
-              <h4>Alquiler y Tripulación</h4>
-              <p>Embarcaciones con tripulación para proyectos y transporte.</p>
-            </button>
+      <section className="cot-pro-shell">
+        <aside className="cot-pro-photo-card">
+          <img src={portImageSrc} alt="Puerto de Esmeraldas" />
+          <div className="cot-pro-photo-overlay">
+            <h3>Puerto Esmeraldas</h3>
+            <p>Operaciones seguras de carga, cabotaje y maniobras marítimas.</p>
           </div>
+        </aside>
 
-          <form className="cot-form" onSubmit={handleSubmit} noValidate>
-            <h3>Datos de la Empresa</h3>
-            <div className="cot-form-grid">
-              <label>
-                Nombre de la Empresa *
-                <input name="company" value={form.company} onChange={handleChange} className={errors.company ? "input-error" : ""} />
+        <div className="cot-pro-form-card">
+          <form className="cot-pro-form" onSubmit={handleSubmit} noValidate>
+            <h3 className="cot-pro-section-title">Datos de la Empresa</h3>
+            <div className="cot-pro-grid">
+              <div className="cot-pro-field">
+                <label htmlFor="company">Nombre de la Empresa *</label>
+                <input id="company" name="company" value={form.company} onChange={handleChange} className={errors.company ? "input-error" : ""} />
                 {errors.company && <small className="field-error">{errors.company}</small>}
-              </label>
-
-              <label>
-                Dirección
-                <input name="address" value={form.address} onChange={handleChange} />
-              </label>
-
-              <label>
-                Correo Electrónico *
-                <input name="email" type="email" value={form.email} onChange={handleChange} className={errors.email ? "input-error" : ""} />
+              </div>
+              <div className="cot-pro-field">
+                <label htmlFor="address">Dirección *</label>
+                <input id="address" name="address" value={form.address} onChange={handleChange} className={errors.address ? "input-error" : ""} />
+                {errors.address && <small className="field-error">{errors.address}</small>}
+              </div>
+              <div className="cot-pro-field">
+                <label htmlFor="email">Correo Electrónico *</label>
+                <input id="email" name="email" type="email" value={form.email} onChange={handleChange} className={errors.email ? "input-error" : ""} />
                 {errors.email && <small className="field-error">{errors.email}</small>}
-              </label>
-
-              <label>
-                Teléfono
-                <input name="phone" value={form.phone} onChange={handleChange} />
-              </label>
+              </div>
+              <div className="cot-pro-field">
+                <label htmlFor="phone">Teléfono de Contacto</label>
+                <input id="phone" name="phone" value={form.phone} onChange={handleChange} />
+              </div>
             </div>
 
-            <h3>Características de la Nave</h3>
-            <div className="cot-form-grid">
-              <label>ITROS — Registro Bruto<input name="itros" value={form.itros} onChange={handleChange} /></label>
-              <label>LOA — Eslora Total (m)<input name="loa" value={form.loa} onChange={handleChange} /></label>
-              <label>BEAM — Manga (m)<input name="beam" value={form.beam} onChange={handleChange} /></label>
-              <label>DWT — Peso Muerto (ton)<input name="dwt" value={form.dwt} onChange={handleChange} /></label>
+            <h3 className="cot-pro-section-title">Características de la Nave</h3>
+            <div className="cot-pro-grid">
+              <div className="cot-pro-field">
+                <label htmlFor="itros">ITROS - Registro Bruto</label>
+                <input id="itros" name="itros" value={form.itros} onChange={handleChange} />
+              </div>
+              <div className="cot-pro-field">
+                <label htmlFor="loa">LOA - Eslora Total (m)</label>
+                <input id="loa" name="loa" value={form.loa} onChange={handleChange} />
+              </div>
+              <div className="cot-pro-field">
+                <label htmlFor="beam">BEAM - Manga (m)</label>
+                <input id="beam" name="beam" value={form.beam} onChange={handleChange} />
+              </div>
+              <div className="cot-pro-field">
+                <label htmlFor="dwt">DWT - Peso Muerto (ton)</label>
+                <input id="dwt" name="dwt" value={form.dwt} onChange={handleChange} />
+              </div>
             </div>
 
-            <h3>Detalles de la Operación</h3>
-            <div className="cot-form-grid">
-              <label>
-                Puerto de Destino
-                <select name="destination" value={form.destination} onChange={handleChange}>
-                  <option value="">Seleccione un destino...</option>
+            <h3 className="cot-pro-section-title">Detalles de la Operación</h3>
+            <div className="cot-pro-grid">
+              <div className="cot-pro-field">
+                <label htmlFor="destination">Puerto de Destino</label>
+                <select id="destination" name="destination" value={form.destination} onChange={handleChange}>
+                  <option value="">Seleccione...</option>
                   <option>La Libertad</option>
                   <option>Esmeraldas</option>
                   <option>Guayaquil - Tres Bocas</option>
                   <option>Punta Arenas</option>
                   <option>Otro</option>
                 </select>
-              </label>
-
-              <label>
-                Tipo de Servicio *
-                <select name="service" value={form.service} onChange={handleChange} className={errors.service ? "input-error" : ""}>
+              </div>
+              <div className="cot-pro-field">
+                <label htmlFor="service">Tipo de Servicio *</label>
+                <select id="service" name="service" value={form.service} onChange={handleChange} className={errors.service ? "input-error" : ""}>
                   <option value="">Seleccione...</option>
-                  <option>Transporte y Cabotaje</option>
-                  <option>Barcazas y Plataformas</option>
-                  <option>Alquiler y Tripulación</option>
+                  <option>Transporte Marítimo y Cabotaje</option>
+                  <option>Transporte de Barcazas y Plataformas</option>
+                  <option>Alquiler de Embarcaciones con Tripulación</option>
+                  <option>Asesoría Técnica</option>
                 </select>
                 {errors.service && <small className="field-error">{errors.service}</small>}
-              </label>
+              </div>
             </div>
 
-            <label>Observaciones Adicionales<textarea name="notes" rows={4} value={form.notes} onChange={handleChange} /></label>
-
-            <div style={{ marginTop: 16 }}>
-              <button className="btn btn-primary" type="submit" disabled={submitting}>{submitting ? "Enviando..." : "Enviar Solicitud →"}</button>
-              {success && <span style={{ marginLeft: 12, color: "green", fontWeight: 700 }}><FaCheck /> Enviado</span>}
+            <div className="cot-pro-field">
+              <label htmlFor="notes">Observaciones Adicionales</label>
+              <textarea id="notes" name="notes" rows={4} value={form.notes} onChange={handleNotesChange} />
             </div>
+
+            <button className="cot-pro-submit" type="submit" disabled={submitting}>{submitting ? "Enviando..." : "ENVIAR SOLICITUD"}</button>
+            {success && <p className="cot-pro-ok">Formulario enviado con éxito.</p>}
           </form>
         </div>
-
-        <aside className="cot-side">
-          <h3>Contacto</h3>
-          <div className="contact-card">
-            <div className="contact-icon"><FaPhone /></div>
-            <div>
-              <h4>Teléfonos</h4>
-              <p>+593 985 456 821<br />+593 963 487 813</p>
-            </div>
-          </div>
-
-          <div className="contact-card">
-            <div className="contact-icon"><FaEnvelope /></div>
-            <div>
-              <h4>Email</h4>
-              <p><a href="mailto:bluewavemaritimeag@gmail.com">bluewavemaritimeag@gmail.com</a></p>
-            </div>
-          </div>
-
-          <a className="contact-whatsapp whatsapp-large" href="https://wa.me/593985456821" target="_blank" rel="noreferrer"><FaWhatsapp /> WhatsApp Directo</a>
-
-          <h4 style={{ marginTop: 18 }}>¿Qué necesitas?</h4>
-          <ul className="contact-checklist">
-            <li><FaCheck className="check-icon" /> Inspección previa de carga</li>
-            <li><FaCheck className="check-icon" /> Plan de maniobras STS</li>
-            <li><FaCheck className="check-icon" /> Transporte especializado</li>
-            <li><FaCheck className="check-icon" /> Alquiler con tripulación</li>
-          </ul>
-        </aside>
       </section>
     </main>
   );
