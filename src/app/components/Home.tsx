@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useReveal } from '../hooks/useReveal';
+import { FaShip, FaAnchor, FaShoppingCart } from 'react-icons/fa';
+import { HiOutlineMapPin, HiOutlinePhone, HiOutlineEnvelope } from 'react-icons/hi2';
 
 const baseUrl = import.meta.env.BASE_URL;
 
@@ -113,9 +115,9 @@ export function Home() {
         </div>
 
         <div className="services-grid">
-          <article className="bw-reveal bw-reveal-up"><span>🚢</span><h3>Transporte y Cabotaje</h3><p>Transporte seguro y eficiente de carga y pasajeros en rutas regulares y no regulares, totalmente adaptado a las necesidades de su operación.</p><small>Servicio Destacado</small></article>
-          <article className="bw-reveal bw-reveal-up"><span>⚓</span><h3>Barcazas y Plataformas</h3><p>Soluciones técnicas especializadas para el traslado complejo de barcazas, plataformas petrolíferas y estructuras mayores con remolcadores.</p><small>Operaciones Complejas</small></article>
-          <article className="bw-reveal bw-reveal-up"><span>🛥️</span><h3>Fletamento y Tripulación</h3><p>Alquiler de embarcaciones de placer o trabajo, dotadas con tripulación certificada para garantizar experiencias seguras y profesionales.</p><small>Personal Capacitado</small></article>
+          <article className="bw-reveal bw-reveal-up"><span className="service-icon"><FaShip /></span><h3>Transporte y Cabotaje</h3><p>Transporte seguro y eficiente de carga y pasajeros en rutas regulares y no regulares, totalmente adaptado a las necesidades de su operación.</p><small>Servicio Destacado</small></article>
+          <article className="bw-reveal bw-reveal-up"><span className="service-icon"><FaAnchor /></span><h3>Barcazas y Plataformas</h3><p>Soluciones técnicas especializadas para el traslado complejo de barcazas, plataformas petrolíferas y estructuras mayores con remolcadores.</p><small>Operaciones Complejas</small></article>
+          <article className="bw-reveal bw-reveal-up"><span className="service-icon"><FaShoppingCart /></span><h3>Fletamento y Tripulación</h3><p>Alquiler de embarcaciones de placer o trabajo, dotadas con tripulación certificada para garantizar experiencias seguras y profesionales.</p><small>Personal Capacitado</small></article>
         </div>
       </section>
 
@@ -150,14 +152,14 @@ export function Home() {
             <p>Comuníquese con nuestra central de operaciones. Disponemos de cobertura en los terminales más importantes del país.</p>
             <div className="contact-grid">
               <article className="contact-card">
-                <span>📍</span>
+                <span className="contact-icon"><HiOutlineMapPin /></span>
                 <div>
                   <h4>Base de Operaciones</h4>
                   <p>Km 7.5 vía Atacames, Urb. Tecnipetrol Mz. 34 V. 32 Esmeraldas, Ecuador</p>
                 </div>
               </article>
               <article className="contact-card">
-                <span>📱</span>
+                <span className="contact-icon"><HiOutlinePhone /></span>
                 <div>
                   <h4>Comunicaciones</h4>
                   <p>+593 985 456 821</p>
@@ -165,7 +167,7 @@ export function Home() {
                 </div>
               </article>
               <article className="contact-card">
-                <span>📧</span>
+                <span className="contact-icon"><HiOutlineEnvelope /></span>
                 <div>
                   <h4>Despacho Digital</h4>
                   <p>bluewavemaritimeag@gmail.com</p>
