@@ -285,6 +285,17 @@ img { max-width: 100%; display: block; }
   font-size: clamp(28px, 4vw, 42px);
   margin-bottom: 18px;
 }
+.empresa-intro {
+  max-width: 800px;
+  line-height: 1.85;
+  color: #334;
+}
+.empresa-intro p {
+  margin-bottom: 16px;
+  font-size: 15px;
+  text-align: justify;
+}
+
 .empresa-description {
   max-width: 900px;
   line-height: 1.8;

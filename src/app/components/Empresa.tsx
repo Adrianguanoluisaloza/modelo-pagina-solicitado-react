@@ -10,17 +10,14 @@ export function Empresa() {
           <p className="sec-kicker">Conoce Nuestra Empresa</p>
           <h2>BLUEWAVE-MARITIME S.A.</h2>
 
-          <div className="mission-vision-cards">
-            <div className="mv-card">
-              <div className="mv-icon">🎯</div>
-              <h4>Misión</h4>
-              <p>Brindar soluciones marítimas confiables y ágiles, combinando profesionalismo y experiencia para superar las expectativas de nuestros clientes, operando con los más altos estándares de seguridad, eficiencia y calidad.</p>
-            </div>
-            <div className="mv-card">
-              <div className="mv-icon">🔭</div>
-              <h4>Visión</h4>
-              <p>Ser la compañía líder en soluciones marítimas en Ecuador y la región, reconocidos por nuestra agilidad y profesionalismo en cada operación, inspirando confianza y contribuyendo al crecimiento sostenible.</p>
-            </div>
+          <div className="empresa-intro">
+            <p><strong>BLUEWAVE-MARITIME S.A.</strong> es una compañía ecuatoriana especializada en transporte marítimo y de cabotaje, ofreciendo soluciones integrales para la movilización de carga y pasajeros en rutas nacionales e internacionales. Con un firme compromiso con la excelencia y la seguridad, operamos una flota diversa adaptándonos a las necesidades de nuestros clientes y al dinamismo del sector marítimo.</p>
+            <p>Caracterizados por nuestra innovación y compromiso con la calidad, aspiramos a posicionarnos como un referente en el mercado del transporte marítimo y alquiler de embarcaciones con tripulación. Nuestra oferta abarca desde alquiler de embarcaciones de placer y trabajo hasta transporte especializado de barcazas, plataformas petrolíferas y otras estructuras.</p>
+            <p>Operamos en diversas vías de navegación interiores —ríos, canales y lagos— ofreciendo amplias soluciones logísticas. Nuestro equipo de profesionales altamente capacitados garantiza un servicio eficiente, seguro y confiable, enfocado en la satisfacción total del cliente.</p>
+          </div>
+
+          <div className="about-cta">
+            <Link to="/cotizacion" className="btn btn-primary">SOLICITAR COTIZACIÓN</Link>
           </div>
         </div>
 
