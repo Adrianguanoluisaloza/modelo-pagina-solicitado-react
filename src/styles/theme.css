@@ -1,0 +1,21 @@
+:root {
+  --navy: #1a2d6b;
+  --blue: #1a6fd4;
+  --green: #4aad52;
+  --dark: #080f22;
+  --light: #f5f7fa;
+  --text: #1f2b43;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: #ffffff;
+}
