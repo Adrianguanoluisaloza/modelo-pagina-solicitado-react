@@ -26,9 +26,9 @@ const galleryCards = [
   },
   {
     number: '04',
-    src: `${baseUrl}images/dentro-del-barco.jpg`,
-    alt: 'Operación STS',
-    title: 'Operación STS',
+    src: `${baseUrl}images/operaciones abiertas sts.jpg`,
+    alt: 'Operaciones Abiertas STS',
+    title: 'Operaciones Abiertas STS',
   },
   {
     number: '05',
