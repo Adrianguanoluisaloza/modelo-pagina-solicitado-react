@@ -337,10 +337,34 @@ img { max-width: 100%; display: block; }
 }
 .empresa-photo-card {
   position: relative;
-  border-radius: 0;
+  border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(20, 47, 93, .15);
-  min-height: 520px;
+}
+.empresa-photo-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.empresa-photo-caption {
+  margin-top: 16px;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid #dce6f6;
+  border-radius: 10px;
+}
+.empresa-photo-caption h3 {
+  font-family: var(--font-heading);
+  color: #1a2d6b;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.empresa-photo-caption p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #334;
+  text-align: justify;
 }
 .empresa-photo-card img {
   width: 100%;

@@ -8,11 +8,11 @@ export function Empresa() {
       <div className="empresa-container">
         <aside className="empresa-side">
           <div className="empresa-photo-card">
-            <img src={`${baseUrl}images/SHIT TO SHIT.jpg`} alt="Operación Ship to Ship de BlueWave Maritime" />
-            <div className="empresa-photo-overlay empresa-photo-overlay--badge">
-              <h3>STS</h3>
-              <p>Especialistas Ship to Ship</p>
-            </div>
+            <img src={`${baseUrl}images/SHIT TO SHIT.jpg`} alt="Especialistas Ship to Ship" />
+          </div>
+          <div className="empresa-photo-caption">
+            <h3>Especialistas Ship to Ship</h3>
+            <p>Operaciones especializadas en transferencia de carga entre buques en altamar y puertos. Nuestra experiencia garantiza maniobras seguras, eficientes y cumpliendo con los más altos estándares internacionales. Atendemos rutas nacionales e internacionales con flota equipada y personal certificado.</p>
           </div>
         </aside>
 
