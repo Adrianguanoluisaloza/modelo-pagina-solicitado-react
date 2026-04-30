@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useReveal } from '../hooks/useReveal';
-import { FaShip, FaAnchor, FaShoppingCart } from 'react-icons/fa';
-import { HiOutlineMapPin, HiOutlinePhone, HiOutlineEnvelope, HiOutlineUser } from 'react-icons/hi2';
+import { FaAnchor, FaGlobeAmericas, FaShip, FaShoppingCart } from 'react-icons/fa';
+import { HiOutlineEnvelope, HiOutlineMapPin, HiOutlinePhone, HiOutlineUser } from 'react-icons/hi2';
 import { Empresa } from './Empresa';
 
 const baseUrl = import.meta.env.BASE_URL;
@@ -15,29 +15,29 @@ export function Home() {
         <img className="hero-bg" src={`${baseUrl}images/aerial-drone-photo-industrial-fuel-petrochemical-tanker-cruising-sea.jpg`} alt="Operaciones BlueWave Maritime" />
         <div className="hero-overlay" />
         <div className="hero-content bw-reveal bw-reveal-up">
-          <span className="hero-kicker">AGENCIA NAVIERA — ECUADOR</span>
+          <span className="hero-kicker">AGENCIA NAVIERA - ECUADOR</span>
           <h1>
             <span>SOLUCIONES</span>
             <span>MARÍTIMAS DE</span>
             <span>EXCELENCIA</span>
           </h1>
           <p>
-            <strong>BLUEWAVE-MARITIME S.A.</strong> es una compañía ecuatoriana líder en transporte marítimo y cabotaje. Ofrecemos soluciones logísticas integrales desde Esmeraldas, Ecuador, conectando rutas nacionales e internacionales con excelencia, seguridad y un compromiso inquebrantable con la calidad.
+            <strong>BLUEWAVE-MARITIME S.A.</strong> ofrece transporte marítimo, cabotaje y servicios especializados para carga y pasajeros, con operación desde Esmeraldas y cobertura en puertos estratégicos del Ecuador.
           </p>
           <div className="hero-features">
-            <div className="hero-feature"><span className="feature-icon">🚢</span><span>Transporte Marítimo & Cabotaje</span></div>
-            <div className="hero-feature"><span className="feature-icon">⚓</span><span>Flota Diversa y Especializada</span></div>
-            <div className="hero-feature"><span className="feature-icon">🌍</span><span>Cobertura Nacional e Internacional</span></div>
+            <div className="hero-feature"><span className="feature-icon"><FaShip /></span><span>Transporte Marítimo & Cabotaje</span></div>
+            <div className="hero-feature"><span className="feature-icon"><FaAnchor /></span><span>Flota Diversa y Especializada</span></div>
+            <div className="hero-feature"><span className="feature-icon"><FaGlobeAmericas /></span><span>Cobertura Nacional e Internacional</span></div>
           </div>
           <div className="hero-actions">
-            <Link to="/cotizacion" className="btn btn-primary">SOLICITAR COTIZACION</Link>
+            <Link to="/cotizacion" className="btn btn-primary">SOLICITAR COTIZACIÓN</Link>
             <a href="#servicios" className="btn btn-outline">CONOCER SERVICIOS</a>
             <Link to="/acerca" className="btn btn-outline">QUIÉNES SOMOS</Link>
           </div>
           <div className="hero-stats">
             <div><b>24/7</b><span>Soporte Operativo</span></div>
             <div><b>4+</b><span>Puertos Estratégicos</span></div>
-            <div><b>100%</b><span>Compromiso Total</span></div>
+            <div><b>STS</b><span>Ship to Ship</span></div>
           </div>
         </div>
       </section>
@@ -50,30 +50,30 @@ export function Home() {
             <p className="sec-kicker">Nuestras Soluciones</p>
             <h2>Áreas de Especialización</h2>
           </div>
-          <Link to="/cotizacion">Solicitar Presupuesto →</Link>
+          <Link to="/cotizacion">Solicitar Presupuesto</Link>
         </div>
 
         <p className="services-intro">
-          En BLUEWAVE-MARITIME S.A., nos comprometemos a ofrecer soluciones marítimas confiables, ágiles y profesionales, respaldadas por nuestra experiencia y dedicación a la excelencia. Estamos listos para ser su socio estratégico en transporte marítimo, alquiler de embarcaciones y servicios especializados.
+          Servicios marítimos confiables, ágiles y profesionales para transporte, alquiler de embarcaciones y operaciones especializadas.
         </p>
 
         <div className="services-grid">
           <article className="bw-reveal bw-reveal-up">
             <span className="service-icon"><FaShip /></span>
             <h3>Transporte Marítimo y Cabotaje</h3>
-            <p>Transporte seguro y eficiente de carga y pasajeros en rutas regulares y no regulares, adaptado a las necesidades de cada cliente. Conectamos Ecuador con el mundo.</p>
+            <p>Transporte seguro y eficiente de carga y pasajeros en rutas regulares y no regulares, adaptado a las necesidades de cada cliente.</p>
             <small>Servicio Destacado</small>
           </article>
           <article className="bw-reveal bw-reveal-up">
             <span className="service-icon"><FaAnchor /></span>
             <h3>Barcazas y Plataformas Petrolíferas</h3>
-            <p>Soluciones especializadas para el traslado de barcazas, plataformas petrolíferas y estructuras mayores, utilizando remolcadores de última generación.</p>
+            <p>Soluciones especializadas para el traslado de barcazas, plataformas petrolíferas y estructuras mayores mediante remolque o empuje.</p>
             <small>Operaciones Especializadas</small>
           </article>
           <article className="bw-reveal bw-reveal-up">
             <span className="service-icon"><FaShoppingCart /></span>
             <h3>Alquiler de Embarcaciones con Tripulación</h3>
-            <p>Alquiler de embarcaciones de placer y trabajo con tripulación certificada, garantizando experiencias seguras y personalizadas.</p>
+            <p>Alquiler de embarcaciones de placer y trabajo con tripulación, para transporte marítimo y costero.</p>
             <small>Personal Capacitado</small>
           </article>
         </div>
@@ -81,17 +81,17 @@ export function Home() {
 
       <section className="cta bw-reveal bw-reveal-zoom">
         <h2>¿NECESITA PRESUPUESTO PARA UNA OPERACIÓN?</h2>
-        <p>Nuestro departamento técnico está disponible 24/7 para analizar sus requerimientos.</p>
+        <p>Nuestro departamento técnico está disponible para analizar sus requerimientos.</p>
         <Link to="/cotizacion" className="btn btn-primary">IR AL FORMULARIO DE COTIZACIÓN</Link>
-        <p className="cta-tagline">¡Contáctenos hoy y naveguemos juntos hacia el éxito!</p>
+        <p className="cta-tagline">Contáctenos hoy y naveguemos juntos hacia el éxito.</p>
       </section>
 
-       <section className="contact" id="contacto">
+      <section className="contact" id="contacto">
         <div className="contact-layout">
           <div className="bw-reveal bw-reveal-left contact-main">
             <p className="sec-kicker">Contacto Directo</p>
             <h2>Estamos Listos Para Zarpar</h2>
-            <p>Comuníquese con nuestra central de operaciones 24/7. Disponemos de cobertura en los terminales marítimos más importantes del país, listos para atender sus requerimientos con agilidad y profesionalismo.</p>
+            <p>Comuníquese con nuestra central de operaciones. Atendemos requerimientos marítimos con agilidad, seguridad y profesionalismo.</p>
             <div className="contact-grid">
               <article className="contact-card">
                 <span className="contact-icon"><HiOutlineMapPin /></span>

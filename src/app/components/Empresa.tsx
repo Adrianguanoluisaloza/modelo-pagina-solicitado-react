@@ -4,32 +4,42 @@ const baseUrl = import.meta.env.BASE_URL;
 
 export function Empresa() {
   return (
-    <section className="empresa-section bw-reveal bw-reveal-up">
+    <section className="empresa-section bw-reveal bw-reveal-up" id="empresa">
       <div className="empresa-container">
-        <div className="empresa-content">
-          <p className="sec-kicker">Conoce Nuestra Empresa</p>
-          <h2>BLUEWAVE-MARITIME S.A.</h2>
-
-          <div className="empresa-intro">
-            <p><strong>BLUEWAVE-MARITIME S.A.</strong> es una compañía ecuatoriana especializada en transporte marítimo y de cabotaje, ofreciendo soluciones integrales para la movilización de carga y pasajeros en rutas nacionales e internacionales. Con un firme compromiso con la excelencia y la seguridad, operamos una flota diversa adaptándonos a las necesidades de nuestros clientes y al dinamismo del sector marítimo.</p>
-            <p>Caracterizados por nuestra innovación y compromiso con la calidad, aspiramos a posicionarnos como un referente en el mercado del transporte marítimo y alquiler de embarcaciones con tripulación. Nuestra oferta abarca desde alquiler de embarcaciones de placer y trabajo hasta transporte especializado de barcazas, plataformas petrolíferas y otras estructuras.</p>
-            <p>Operamos en diversas vías de navegación interiores —ríos, canales y lagos— ofreciendo amplias soluciones logísticas. Nuestro equipo de profesionales altamente capacitados garantiza un servicio eficiente, seguro y confiable, enfocado en la satisfacción total del cliente.</p>
-          </div>
-
-          <div className="about-cta">
-            <Link to="/cotizacion" className="btn btn-primary">SOLICITAR COTIZACIÓN</Link>
-          </div>
-        </div>
-
         <aside className="empresa-side">
           <div className="empresa-photo-card">
-            <img src={`${baseUrl}images/SHIT TO SHIT.jpg`} alt="Especialistas Ship to Ship" />
-            <div className="empresa-photo-overlay">
-              <h3>Especialistas Ship to Ship</h3>
-              <p>Operaciones seguras y eficientes</p>
+            <img src={`${baseUrl}images/SHIT TO SHIT.jpg`} alt="Operación Ship to Ship de BlueWave Maritime" />
+            <div className="empresa-photo-overlay empresa-photo-overlay--badge">
+              <h3>STS</h3>
+              <p>Especialistas Ship to Ship</p>
             </div>
           </div>
         </aside>
+
+        <div className="empresa-content">
+          <p className="sec-kicker">Quiénes Somos</p>
+          <h2>Una empresa ecuatoriana de confianza</h2>
+
+          <div className="empresa-intro">
+            <p><strong>BLUEWAVE-MARITIME S.A.</strong> es una compañía especializada en transporte marítimo y de cabotaje, ofreciendo soluciones para la movilización de carga y pasajeros.</p>
+            <p>Operamos una flota diversa que incluye embarcaciones de excursión, cruceros, transbordadores y taxis acuáticos, adaptándonos a los estándares de calidad y seguridad del sector marítimo.</p>
+          </div>
+
+          <div className="empresa-home-cards">
+            <article>
+              <h3>Misión</h3>
+              <p>Soluciones marítimas confiables y ágiles, combinando profesionalismo y eficacia.</p>
+            </article>
+            <article>
+              <h3>Visión</h3>
+              <p>Ser líderes en la región reconocidos por nuestra integridad operativa.</p>
+            </article>
+          </div>
+
+          <div className="about-cta">
+            <Link to="/acerca" className="btn btn-primary">CONOCER MÁS</Link>
+          </div>
+        </div>
       </div>
     </section>
   );

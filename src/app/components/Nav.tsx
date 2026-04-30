@@ -43,10 +43,10 @@ export function Nav() {
 
           <ul className={`bw-nav-links ${open ? 'open' : ''}`}>
             <li><Link to="/" onClick={() => setOpen(false)}>INICIO</Link></li>
-            <li><a href={`${baseUrl}#servicios`} onClick={() => setOpen(false)}>SERVICIOS</a></li>
+            <li><Link to="/#servicios" onClick={() => setOpen(false)}>SERVICIOS</Link></li>
             <li><Link to="/acerca" onClick={() => setOpen(false)}>QUIÉNES SOMOS</Link></li>
             <li><Link to="/empresa" onClick={() => setOpen(false)}>EMPRESA</Link></li>
-            <li><a href={`${baseUrl}#contacto`} onClick={() => setOpen(false)}>CONTACTO</a></li>
+            <li><Link to="/#contacto" onClick={() => setOpen(false)}>CONTACTO</Link></li>
             <li><Link className="bw-nav-cta" to="/cotizacion" onClick={() => setOpen(false)}>COTIZAR</Link></li>
           </ul>
         </div>

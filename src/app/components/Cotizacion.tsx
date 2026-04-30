@@ -35,50 +35,52 @@ export function Cotizacion(): JSX.Element {
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     const { name, value } = e.target;
-    setForm((s) => ({ ...s, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: "" }));
+    setForm((current) => ({ ...current, [name]: value }));
+    setErrors((current) => ({ ...current, [name]: "" }));
+    setSuccess(false);
   }
 
   function handleNotesChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
     const { value } = e.target;
-    setForm((s) => ({ ...s, notes: value }));
-    setErrors((prev) => ({ ...prev, notes: "" }));
+    setForm((current) => ({ ...current, notes: value }));
+    setSuccess(false);
     e.target.style.height = "auto";
     e.target.style.height = `${e.target.scrollHeight}px`;
   }
 
   function validate() {
-    const err: Record<string, string> = {};
-    if (!form.company.trim()) err.company = "Requerido";
-    if (!form.address.trim()) err.address = "Requerido";
-    if (!form.email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) err.email = "Email válido requerido";
-    if (!form.service) err.service = "Seleccione un servicio";
-    return err;
+    const nextErrors: Record<string, string> = {};
+    if (!form.company.trim()) nextErrors.company = "Requerido";
+    if (!form.address.trim()) nextErrors.address = "Requerido";
+    if (!form.email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) nextErrors.email = "Email válido requerido";
+    if (!form.service) nextErrors.service = "Seleccione un servicio";
+    return nextErrors;
   }
 
-  function handleSubmit(e?: React.FormEvent) {
-    e?.preventDefault();
-    const v = validate();
-    if (Object.keys(v).length) {
-      setErrors(v);
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    const nextErrors = validate();
+    if (Object.keys(nextErrors).length) {
+      setErrors(nextErrors);
+      setSuccess(false);
       return;
     }
+
     setSubmitting(true);
-    setTimeout(() => {
+    window.setTimeout(() => {
       setSubmitting(false);
       setSuccess(true);
-    }, 900);
+    }, 700);
   }
 
-   const portImageSrc = `${import.meta.env.BASE_URL}images/puerto-esmeraldas.jpg`;
-   const whatsappNumber = "593985456821";
-   const whatsappMessage = "Hola, requiero una cotización para una operación marítima.";
-   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+  const portImageSrc = `${import.meta.env.BASE_URL}images/puerto-esmeraldas.jpg`;
+  const whatsappMessage = "Hola, requiero una cotización para una operación marítima.";
+  const whatsappUrl = `https://wa.me/593985456821?text=${encodeURIComponent(whatsappMessage)}`;
 
-   return (
+  return (
     <main className="cot-page cot-pro-page">
       <section className="cot-pro-hero">
-        <p>Formulario de Cotización</p>
+        <p>BLUEWAVE-MARITIME S.A.</p>
         <h1>Contáctanos para ofrecerte una solución personalizada</h1>
       </section>
 
@@ -171,7 +173,7 @@ export function Cotizacion(): JSX.Element {
             <a href={whatsappUrl} target="_blank" rel="noreferrer" className="cot-pro-whatsapp">
               <FaWhatsapp /> CONTACTAR POR WHATSAPP
             </a>
-            {success && <p className="cot-pro-ok">Formulario enviado con éxito.</p>}
+            {success && <p className="cot-pro-ok">BLUEWAVE-MARITIME S.A. recibió la información para revisión.</p>}
           </form>
         </div>
       </section>
