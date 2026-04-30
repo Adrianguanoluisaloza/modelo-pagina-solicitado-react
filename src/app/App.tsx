@@ -5,7 +5,7 @@ import { Footer } from './components/Footer';
 
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Nav />
       <AppRoutes />
       <Footer />

@@ -1,52 +1,54 @@
 import { Link } from 'react-router-dom';
 import { useReveal } from '../hooks/useReveal';
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const galleryCards = [
   {
     number: '01',
-    src: '/images/puerto-esmeraldas.jpg',
+    src: `${baseUrl}images/puerto-esmeraldas.jpg`,
     alt: 'Operación en puerto',
     title: 'Operación en Puerto',
   },
   {
     number: '02',
-    src: '/images/barco-1.jpg',
+    src: `${baseUrl}images/barco-1.jpg`,
     alt: 'Flota operativa',
     title: 'Flota Operativa',
   },
   {
     number: '03',
-    src: '/images/dentro-del-barco.jpg',
+    src: `${baseUrl}images/dentro-del-barco.jpg`,
     alt: 'Maniobras especiales',
     title: 'Maniobras Especiales',
   },
   {
     number: '04',
-    src: '/images/SHIT TO SHIT.jpg',
+    src: `${baseUrl}images/SHIT TO SHIT.jpg`,
     alt: 'Operación STS',
     title: 'Operación STS',
   },
   {
     number: '05',
-    src: '/images/aerial-view-oil-tanker-floating-sea.jpg',
+    src: `${baseUrl}images/aerial-view-oil-tanker-floating-sea.jpg`,
     alt: 'Logística portuaria',
     title: 'Logística Portuaria',
   },
   {
     number: '06',
-    src: '/images/oficina.jpg',
+    src: `${baseUrl}images/oficina.jpg`,
     alt: 'Servicios auxiliares',
     title: 'Servicios Auxiliares',
   },
   {
     number: '07',
-    src: '/images/barcos-en-el-mar.jpg',
+    src: `${baseUrl}images/barcos-en-el-mar.jpg`,
     alt: 'Carga y descarga',
     title: 'Carga y Descarga',
   },
   {
     number: '08',
-    src: '/images/barco-10.jpg',
+    src: `${baseUrl}images/barco-10.jpg`,
     alt: 'Despliegue técnico',
     title: 'Despliegue Técnico',
   },
@@ -58,7 +60,7 @@ export function Home() {
   return (
     <main>
       <section className="hero" id="inicio">
-        <img className="hero-bg" src="/images/CIELO EN EL MAR.jpg" alt="Operaciones BlueWave Maritime" />
+        <img className="hero-bg" src={`${baseUrl}images/CIELO EN EL MAR.jpg`} alt="Operaciones BlueWave Maritime" />
         <div className="hero-overlay" />
         <div className="hero-content bw-reveal bw-reveal-up">
           <span className="hero-kicker">AGENCIA NAVIERA — ECUADOR</span>
@@ -86,7 +88,7 @@ export function Home() {
 
       <section className="about bw-reveal bw-reveal-left" id="acerca">
         <div className="about-img-wrap">
-          <img src="/images/puerto-esmeraldas.jpg" alt="Equipo BlueWave Maritime" />
+          <img src={`${baseUrl}images/puerto-esmeraldas.jpg`} alt="Equipo BlueWave Maritime" />
           <div className="about-badge"><b>STS</b><span>Especialistas Ship to Ship</span></div>
         </div>
         <div>

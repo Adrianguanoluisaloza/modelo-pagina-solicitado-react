@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 
 export function Footer() {
+  const baseUrl = import.meta.env.BASE_URL;
+
   return (
     <footer className="bw-footer">
       <div className="bw-footer-inner">
@@ -16,9 +18,9 @@ export function Footer() {
 
         <div className="bw-footer-links">
           <h3>Empresa</h3>
-          <Link to="/#acerca">Nosotros</Link>
-          <Link to="/#servicios">Servicios</Link>
-          <Link to="/#trabajos">Proyectos</Link>
+          <a href={`${baseUrl}#acerca`}>Nosotros</a>
+          <a href={`${baseUrl}#servicios`}>Servicios</a>
+          <a href={`${baseUrl}#trabajos`}>Proyectos</a>
         </div>
 
         <div className="bw-footer-contact">
