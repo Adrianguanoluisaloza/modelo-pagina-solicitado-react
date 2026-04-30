@@ -3,27 +3,26 @@ import { useState, useEffect } from 'react';
 
 export function Nav() {
   const [open, setOpen] = useState(false);
-  const [visible, setVisible] = useState(true);
+  const [hidden, setHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const baseUrl = import.meta.env.BASE_URL;
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        setVisible(false); // Scroll down
+      if (currentScrollY > lastScrollY && currentScrollY > 60) {
+        setHidden(true);
       } else {
-        setVisible(true); // Scroll up
+        setHidden(false);
       }
       setLastScrollY(currentScrollY);
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
   return (
-    <header className={`bw-header ${visible ? 'visible' : 'hidden'}`}>
+    <header className={`bw-header ${hidden ? 'hidden' : 'visible'}`}>
 
       <nav className="bw-nav">
         <div className="bw-nav-brand">
@@ -43,12 +42,12 @@ export function Nav() {
           </button>
 
           <ul className={`bw-nav-links ${open ? 'open' : ''}`}>
-            <li><a href={`${baseUrl}#inicio`}>INICIO</a></li>
-            <li><a href={`${baseUrl}#servicios`}>SERVICIOS</a></li>
-            <li><a href={`${baseUrl}#trabajos`}>PROYECTOS</a></li>
-            <li><a href={`${baseUrl}#acerca`}>NOSOTROS</a></li>
-            <li><a href={`${baseUrl}#contacto`}>CONTACTO</a></li>
-            <li><Link className="bw-nav-cta" to="/cotizacion">COTIZAR</Link></li>
+            <li><Link to="/" onClick={() => setOpen(false)}>INICIO</Link></li>
+            <li><a href={`${baseUrl}#servicios`} onClick={() => setOpen(false)}>SERVICIOS</a></li>
+            <li><Link to="/acerca" onClick={() => setOpen(false)}>QUIÉNES SOMOS</Link></li>
+            <li><Link to="/empresa" onClick={() => setOpen(false)}>EMPRESA</Link></li>
+            <li><a href={`${baseUrl}#contacto`} onClick={() => setOpen(false)}>CONTACTO</a></li>
+            <li><Link className="bw-nav-cta" to="/cotizacion" onClick={() => setOpen(false)}>COTIZAR</Link></li>
           </ul>
         </div>
       </nav>

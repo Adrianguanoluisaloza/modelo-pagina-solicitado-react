@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 
 type FormState = {
   company: string;
@@ -69,9 +70,12 @@ export function Cotizacion(): JSX.Element {
     }, 900);
   }
 
-  const portImageSrc = `${import.meta.env.BASE_URL}images/puerto-esmeraldas.jpg`;
+   const portImageSrc = `${import.meta.env.BASE_URL}images/puerto-esmeraldas.jpg`;
+   const whatsappNumber = "593985456821";
+   const whatsappMessage = "Hola, requiero una cotización para una operación marítima.";
+   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
-  return (
+   return (
     <main className="cot-page cot-pro-page">
       <section className="cot-pro-hero">
         <p>Formulario de Cotización</p>
@@ -164,6 +168,9 @@ export function Cotizacion(): JSX.Element {
             </div>
 
             <button className="cot-pro-submit" type="submit" disabled={submitting}>{submitting ? "Enviando..." : "ENVIAR SOLICITUD"}</button>
+            <a href={whatsappUrl} target="_blank" rel="noreferrer" className="cot-pro-whatsapp">
+              <FaWhatsapp /> CONTACTAR POR WHATSAPP
+            </a>
             {success && <p className="cot-pro-ok">Formulario enviado con éxito.</p>}
           </form>
         </div>

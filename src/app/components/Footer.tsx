@@ -21,13 +21,15 @@ export function Footer() {
           <a href={`${baseUrl}#acerca`}>Nosotros</a>
           <a href={`${baseUrl}#servicios`}>Servicios</a>
           <a href={`${baseUrl}#trabajos`}>Proyectos</a>
+          <Link to="/prensa">Prensa</Link>
         </div>
 
         <div className="bw-footer-contact">
           <h3>Contacto</h3>
-          <a href="tel:+593985456821">+593 985 456 821</a>
+          <a href="tel:+593985456821">+593 985456821</a>
+          <a href="tel:+593963487813">+593 963487813</a>
           <a href="mailto:bluewavemaritimeag@gmail.com">bluewavemaritimeag@gmail.com</a>
-          <span>Esmeraldas, Ecuador</span>
+          <span>Km 7,5 vía Atacames, Urb. Tecnipetrol Mz. 34 V. 32 Esmeraldas, Ecuador</span>
         </div>
       </div>
 
