@@ -2,8 +2,9 @@
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
-.bw-header { position: sticky; top: 0; z-index: 50; }
-.bw-topbar { background: rgba(26, 45, 107, .82); color: #fff; font-size: 13px; display: flex; gap: 12px; justify-content: flex-start; padding: 8px 40px; backdrop-filter: blur(10px); }
+.bw-header { position: sticky; top: 0; z-index: 50; transition: transform 0.3s ease; }
+.bw-header.visible { transform: translateY(0); }
+.bw-header.hidden { transform: translateY(-100%); }
 .bw-nav { background: rgba(255, 255, 255, .55); border-bottom: 1px solid rgba(26, 109, 212, .22); display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 12px 40px; backdrop-filter: blur(14px); }
 .bw-nav-brand { flex: 0 0 auto; }
 .bw-nav-actions { margin-left: auto; display: flex; align-items: center; justify-content: flex-end; gap: 18px; flex: 1 1 auto; min-width: 0; }
@@ -38,13 +39,13 @@ img { max-width: 100%; display: block; }
 .hero-stats b { font-family: var(--font-heading); display: block; font-size: 30px; }
 .hero-stats span { font-size: 13px; color: rgba(255,255,255,.86); }
 
-.about, .services, .gallery, .contact { padding: 78px 40px; }
+.about, .services, .contact { padding: 78px 40px; }
 .about { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; align-items: center; }
 .about-img-wrap { position: relative; }
 .about-badge { position: absolute; right: 16px; bottom: 16px; background: var(--green); color: #fff; padding: 10px 12px; }
 .about-badge b { display: block; font-family: var(--font-heading); font-size: 22px; }
 .sec-kicker { font-family: var(--font-heading); color: var(--blue); text-transform: uppercase; letter-spacing: .1em; font-size: 12px; margin-bottom: 8px; }
-.about h2, .services h2, .gallery h2, .contact h2 { font-family: var(--font-heading); font-size: clamp(28px, 4vw, 46px); line-height: 1.05; color: var(--navy); margin-bottom: 14px; }
+.about h2, .services h2, .contact h2 { font-family: var(--font-heading); font-size: clamp(28px, 4vw, 46px); line-height: 1.05; color: var(--navy); margin-bottom: 14px; }
 .about p { line-height: 1.7; margin-bottom: 10px; }
 .about-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
 .about-cards article { background: var(--light); border-left: 4px solid var(--blue); padding: 14px; }
@@ -64,13 +65,6 @@ img { max-width: 100%; display: block; }
 .cta { background: var(--blue); color: #fff; text-align: center; padding: 68px 40px; }
 .cta h2 { font-family: var(--font-heading); font-size: clamp(24px, 4vw, 42px); margin-bottom: 12px; }
 .cta p { margin-bottom: 18px; }
-
-.gallery-grid { margin-top: 18px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; width: 100%; }
-.gallery-card { position: relative; overflow: hidden; border-radius: 14px; background: #0d1b3e; box-shadow: 0 10px 24px rgba(12, 22, 48, .12); }
-.gallery-card img { width: 100%; height: 220px; object-fit: cover; transform: scale(1.01); transition: transform .35s ease; }
-.gallery-card:hover img { transform: scale(1.06); }
-.gallery-number { position: absolute; top: 12px; left: 12px; z-index: 2; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; height: 30px; padding: 0 10px; border-radius: 999px; background: rgba(255, 255, 255, .92); color: var(--navy); font-family: var(--font-heading); font-size: 12px; font-weight: 800; letter-spacing: .12em; box-shadow: 0 8px 16px rgba(8, 15, 34, .12); }
-.gallery-card figcaption { position: absolute; inset: auto 0 0 0; padding: 12px 14px; color: #fff; font-family: var(--font-heading); font-size: 12px; letter-spacing: .09em; text-transform: uppercase; background: linear-gradient(180deg, rgba(8, 15, 34, 0) 0%, rgba(8, 15, 34, .82) 100%); }
 
 .contact-layout { display: grid; grid-template-columns: 1.3fr .9fr; gap: 22px; align-items: start; }
 .contact-main p { line-height: 1.7; }
@@ -140,9 +134,8 @@ input, select, textarea { border: 1px solid #ccd7eb; background: #f7faff; paddin
   .bw-nav-links a, .bw-nav-links .bw-nav-cta { width: 100%; }
   .bw-nav-links .bw-nav-secondary { width: 100%; min-height: 40px; justify-content: flex-start; padding-left: 0; border: 0; border-radius: 0; }
   .bw-logo img { height: 62px; }
-  .hero-content, .about, .services, .gallery, .contact, .cta, .cot-hero, .cot-grid { padding-left: 20px; padding-right: 20px; }
-  .about, .services-grid, .gallery-grid, .cot-grid, .two-col, .contact-layout { grid-template-columns: 1fr; }
-  .gallery-grid { width: 100%; }
+  .hero-content, .about, .services, .contact, .cta, .cot-hero, .cot-grid { padding-left: 20px; padding-right: 20px; }
+  .about, .services-grid, .cot-grid, .two-col, .contact-layout { grid-template-columns: 1fr; }
   .contact-main, .contact-side { width: 100%; }
   .bw-footer-inner { grid-template-columns: 1fr; padding: 30px 20px; }
   .bw-footer-bottom { flex-direction: column; align-items: flex-start; padding-left: 20px; padding-right: 20px; }

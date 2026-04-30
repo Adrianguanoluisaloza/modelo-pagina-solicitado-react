@@ -1,17 +1,29 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const baseUrl = import.meta.env.BASE_URL;
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setVisible(false); // Scroll down
+      } else {
+        setVisible(true); // Scroll up
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <header className="bw-header">
-      <div className="bw-topbar">
-        <a href="tel:+593985456821">📞 +593 985 456 821</a>
-        <span>|</span>
-        <a href="mailto:bluewavemaritimeag@gmail.com">✉ bluewavemaritimeag@gmail.com</a>
-      </div>
+    <header className={`bw-header ${visible ? 'visible' : 'hidden'}`}>
 
       <nav className="bw-nav">
         <div className="bw-nav-brand">
@@ -37,7 +49,6 @@ export function Nav() {
             <li><a href={`${baseUrl}#acerca`}>NOSOTROS</a></li>
             <li><a href={`${baseUrl}#contacto`}>CONTACTO</a></li>
             <li><Link className="bw-nav-cta" to="/cotizacion">COTIZAR</Link></li>
-            <li><Link className="bw-nav-secondary" to="/exportar">EXPORTAR</Link></li>
           </ul>
         </div>
       </nav>

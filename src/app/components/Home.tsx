@@ -5,57 +5,6 @@ import { HiOutlineMapPin, HiOutlinePhone, HiOutlineEnvelope } from 'react-icons/
 
 const baseUrl = import.meta.env.BASE_URL;
 
-const galleryCards = [
-  {
-    number: '01',
-    src: `${baseUrl}images/puerto-esmeraldas.jpg`,
-    alt: 'Operación en puerto',
-    title: 'Operación en Puerto',
-  },
-  {
-    number: '02',
-    src: `${baseUrl}images/barco-1.jpg`,
-    alt: 'Flota operativa',
-    title: 'Flota Operativa',
-  },
-  {
-    number: '03',
-    src: `${baseUrl}images/SHIT TO SHIT.jpg`,
-    alt: 'Maniobras especiales',
-    title: 'Maniobras Especiales',
-  },
-  {
-    number: '04',
-    src: `${baseUrl}images/operaciones abiertas sts.jpg`,
-    alt: 'Operaciones Abiertas STS',
-    title: 'Operaciones Abiertas STS',
-  },
-  {
-    number: '05',
-    src: `${baseUrl}images/aerial-view-oil-tanker-floating-sea.jpg`,
-    alt: 'Logística portuaria',
-    title: 'Logística Portuaria',
-  },
-  {
-    number: '06',
-    src: `${baseUrl}images/oficina.jpg`,
-    alt: 'Servicios auxiliares',
-    title: 'Servicios Auxiliares',
-  },
-  {
-    number: '07',
-    src: `${baseUrl}images/barcos-en-el-mar.jpg`,
-    alt: 'Carga y descarga',
-    title: 'Carga y Descarga',
-  },
-  {
-    number: '08',
-    src: `${baseUrl}images/barco-10.jpg`,
-    alt: 'Despliegue técnico',
-    title: 'Despliegue Técnico',
-  },
-];
-
 export function Home() {
   useReveal();
 
@@ -125,23 +74,6 @@ export function Home() {
         <h2>¿NECESITA PRESUPUESTO PARA UNA OPERACIÓN?</h2>
         <p>Nuestro departamento técnico está disponible 24/7 para analizar sus requerimientos.</p>
         <Link to="/cotizacion" className="btn btn-primary">IR AL FORMULARIO DE COTIZACIÓN</Link>
-      </section>
-
-      <section className="gallery" id="trabajos">
-        <div className="bw-reveal bw-reveal-right">
-          <p className="sec-kicker">Galería Operativa</p>
-          <h2>Nuestra Trayectoria en el Mar</h2>
-          <p>Documentación visual de nuestras operaciones en La Libertad, Esmeraldas, Guayaquil (Tres Bocas) y Punta Arenas.</p>
-        </div>
-        <div className="gallery-grid">
-          {galleryCards.map((card) => (
-            <figure key={card.title} className="gallery-card bw-reveal bw-reveal-zoom">
-              <img src={card.src} alt={card.alt} />
-              <span className="gallery-number">{card.number}</span>
-              <figcaption>{card.title}</figcaption>
-            </figure>
-          ))}
-        </div>
       </section>
 
       <section className="contact" id="contacto">
