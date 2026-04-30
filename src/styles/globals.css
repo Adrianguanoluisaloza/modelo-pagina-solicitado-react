@@ -113,6 +113,48 @@ img { max-width: 100%; display: block; }
 label { display: grid; gap: 6px; font-size: 13px; margin-bottom: 10px; }
 input, select, textarea { border: 1px solid #ccd7eb; background: #f7faff; padding: 11px 12px; font: inherit; }
 
+/* New cotizacion styles */
+.cot-hero--image { position: relative; min-height: 44vh; background-image: url('/images/barco-9.jpg'); background-size: cover; background-position: center; display: flex; align-items: center; }
+.cot-hero__overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(3,9,26,0.7), rgba(3,9,26,0.45)); }
+.cot-hero__content { position: relative; color: #fff; max-width: 1100px; margin: 0 auto; padding: 48px 20px; text-align: center; }
+.cot-hero__content p { color: #9fc4ff; text-transform: uppercase; letter-spacing: .12em; }
+.cot-hero__tag { margin-top: 8px; opacity: .9; }
+
+.cot-grid { display: grid; grid-template-columns: 1fr .44fr; gap: 22px; padding: 28px 40px 60px; }
+.cot-main { background: transparent; }
+.cot-side { background: #fff; padding: 24px; border: 1px solid #dce6f6; }
+
+.service-cards { display: flex; gap: 14px; margin-bottom: 20px; }
+.service-card { flex: 1 1 0; background: #fff; border: 1px solid #e6eefb; padding: 18px; text-align: left; cursor: pointer; transition: transform .18s ease, box-shadow .18s ease; border-radius: 10px; }
+.service-card:hover { transform: translateY(-6px); box-shadow: 0 18px 30px rgba(11, 64, 128, .08); }
+.service-card.selected { border-color: var(--blue); box-shadow: 0 22px 36px rgba(26, 109, 212, .08); }
+.service-card h4 { font-family: var(--font-heading); margin: 8px 0; }
+.service-card p { font-size: 14px; color: #334; }
+.service-icon { width: 52px; height: 52px; display: inline-flex; align-items: center; justify-content: center; background: rgba(26,109,212,.08); color: var(--blue); font-size: 22px; border-radius: 8px; }
+
+.cot-form { background: #fff; padding: 18px; border-radius: 8px; border: 1px solid #e6eefb; }
+.cot-form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.cot-form label { display: block; }
+.btn-primary { background: var(--blue); color: #fff; padding: 12px 18px; border-radius: 999px; border: none; }
+.btn-primary:hover { transform: translateY(-2px); }
+
+.input-error { border-color: #d9534f !important; }
+.field-error { color: #d9534f; font-size: 13px; display: block; margin-top: 6px; }
+
+.contact-card { display: grid; grid-template-columns: 42px 1fr; gap: 12px; align-items: center; padding: 12px; border: 1px solid #eef6ff; margin-bottom: 12px; }
+.contact-icon { width: 42px; height: 42px; background: rgba(37,211,102,.08); color: #25d366; display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; }
+.whatsapp-large { display: inline-flex; align-items: center; gap: 8px; background: #25d366; color: #fff; padding: 12px 14px; border-radius: 999px; font-weight: 700; }
+.contact-checklist { list-style: none; padding-left: 0; margin-top: 8px; }
+.contact-checklist li { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+.check-icon { color: var(--blue); background: rgba(26,109,212,.08); padding: 6px; border-radius: 6px; }
+
+@media (max-width: 900px) {
+  .service-cards { flex-direction: column; }
+  .cot-grid { grid-template-columns: 1fr; padding: 20px; }
+  .cot-hero__content { padding: 28px 14px; }
+  .cot-form-grid { grid-template-columns: 1fr; }
+}
+
 .export-page { max-width: 900px; margin: 0 auto; padding: 40px 22px 80px; }
 .export-page h1, .export-page h2 { font-family: var(--font-heading); color: var(--navy); margin-bottom: 10px; }
 .export-page p, .export-page li { line-height: 1.7; }
